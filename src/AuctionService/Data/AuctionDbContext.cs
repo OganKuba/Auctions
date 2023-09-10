@@ -1,4 +1,5 @@
 using AuctionService.Entities;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +12,12 @@ namespace AuctionService.Data
         }
         public DbSet<Auction> Auctions{get; set;}
 
-        public static implicit operator ControllerContext(AuctionDbContext v)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            throw new NotImplementedException();
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.AddInboxStateEntity();
+            modelBuilder.AddOutboxMessageEntity();
+            modelBuilder.AddOutboxStateEntity();
         }
     }
 }
