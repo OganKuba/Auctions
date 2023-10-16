@@ -1,5 +1,6 @@
 import './globals.css'
 import Navbar from './nav/Navbar'
+import ToasterProvider from './providers/ToasterProvider'
 
 
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ToasterProvider/>
         <Navbar></Navbar>
         {children}
       </body>
