@@ -6,9 +6,9 @@ using Contracts;
 
 namespace AuctionService.RequestHelpers
 {
-    public class MappingPorfiles : Profile
+    public class MappingProfiles : Profile
     {
-        public MappingPorfiles(){
+        public MappingProfiles(){
             CreateMap<Auction , AuctionDto>().IncludeMembers(x=>x.Item);
             CreateMap<Item , AuctionDto>();
             CreateMap<CreateAuctionDto , Auction>()
