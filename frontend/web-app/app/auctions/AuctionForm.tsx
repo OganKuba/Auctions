@@ -25,7 +25,7 @@ export default function AuctionForm({auction}: Props)  {
       reset({make , model , color , mileage , year});
     }
     setFocus('make');
-  }, [setFocus])
+  }, [setFocus , reset , auction])
   const router = useRouter();
   const pathname = usePathname();
   async function onSubmit(data: FieldValues){
